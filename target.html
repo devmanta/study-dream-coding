@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates</title>
+    <style>
+        .tag{
+            background-color: black;
+            width: 1950px;
+            height: 1500px;
+            padding-top: 10px;
+        }
+        .box{
+            background-color: blanchedalmond;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        .box-selected{
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box-selected"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+        const selected = document.querySelector('.box-selected');
+        selected.addEventListener('click', (e) => {
+            const rect = selected.getBoundingClientRect();
+            console.log(rect);
+            selected.innerHTML = `
+                page: ${e.pageX}.${e.pageY}<br/>
+                client: ${e.clientX}.${e.clientY}
+            `;
+
+            //clientX,Y = measuring from current window (depends on scrolling) 
+            //pageX,Y = measuring from whole browser
+        });
+    </script>
+</body>
+</html>
