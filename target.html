@@ -8,13 +8,12 @@
         .tag{
             background-color: black;
             width: 1950px;
-            height: 1500px;
             padding-top: 10px;
         }
         .box{
             background-color: blanchedalmond;
             width: 100px;
-            height: 100px;
+            height: 200px;
             margin: 10px;
         }
         .box-selected{
@@ -23,10 +22,36 @@
             height: 100px;
             margin: 10px;
         }
+        .scroll{
+            position: fixed;
+        }
+        .scroll-control{
+            width: 150px;
+            background-color: white;
+            text-align: center;
+            border-radius: 2px;
+            margin:10px;
+            float: left;
+        }
     </style>
 </head>
 <body>
     <div class="tag">
+        <div class="scroll">
+            <div class="scroll-control" id="scroll-by">Scroll by 100px</div>
+            <div class="scroll-control" id="scroll-to">Scroll to 100px</div>
+            <div class="scroll-control" id="scroll-into">Scroll into selected</div>
+        </div>
+
+        <!-- 
+        also could be:
+        <aside>
+            <button>button</button>
+            <button>button</button>
+            <button>button</button>
+        </aside> 
+        -->
+
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
@@ -44,15 +69,37 @@
     <script>
         const selected = document.querySelector('.box-selected');
         selected.addEventListener('click', (e) => {
-            const rect = selected.getBoundingClientRect();
-            console.log(rect);
             selected.innerHTML = `
                 page: ${e.pageX}.${e.pageY}<br/>
                 client: ${e.clientX}.${e.clientY}
             `;
 
-            //clientX,Y = measuring from current window (depends on scrolling) 
+            //clientX,Y = measuring from current window(a.k.a viewport) (depends on scrolling) 
             //pageX,Y = measuring from whole browser
+        });
+
+        const scrollBy = document.querySelector('#scroll-by');
+        scrollBy.addEventListener('click', (e) => {
+            // window.scroll(0, e.pageY + 100);
+            // window.scrollBy(0, 100);
+            window.scrollBy({
+                top: 100,
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const scrollTo = document.querySelector('#scroll-to');
+        scrollTo.addEventListener('click', (e) => {
+            // window.scroll(0, 100);
+            window.scrollTo(0, 100);
+        });
+
+        const scrollInto = document.querySelector('#scroll-into');
+        scrollInto.addEventListener('click', (e) => {
+            const rect = selected.getBoundingClientRect();
+            // window.scroll(0, rect.top);
+            selected.scrollIntoView();
         });
     </script>
 </body>
