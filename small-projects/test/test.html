@@ -18,26 +18,35 @@
         }
         img{
             position: absolute;
-            width: 1000px; 
-            height: 500px;
             filter: brightness(0);
-            /* 451 281 */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="cover">
-            <img src="./image/bg_main.jpeg" alt="image" id="img"/>
+            <!-- <img src="./image/bg_main.jpeg" alt="image" id="img"/> -->
+            <img src="./image/h1.jpg" alt="image" id="img"/>
         </div>
     </div>
 
     <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        const imgList = ['h1.jpg', 'h2.jpg', 'h3.jpg', 'h4.jpg', 'h5.jpg'];
+
+        const img = document.querySelector("#img");
+
+        window.addEventListener('DOMContentLoaded', ()=>{
+            img.src = `./image/${imgList[getRandomInt(4)]}`;
+        });
+
         function moveLineToTarget(e){
             const x = e.clientX;
             const y = e.clientY;
             console.log(`${x}       ${y}`);
-            const img = document.querySelector("#img");
             img.style.filter= 'none';
             img.style.clip = `rect(${y-30}px, ${x-10}px, ${y-10}px, ${x-30}px)`;
         }
@@ -46,12 +55,15 @@
             const x = e.touches[0].clientX;
             const y = e.touches[0].clientY;
             console.log(`${x}       ${y}`);
-            const img = document.querySelector("#img");
             img.style.filter= 'none';
             img.style.clip = `rect(${y-30}px, ${x-10}px, ${y-10}px, ${x-30}px)`;
         }
         const cover = document.querySelector('.cover');
 
+        window.addEventListener('load', ()=>{
+            cover.style.width = `${img.width}px`;
+            cover.style.height = `${img.height}px`;
+        });
         //mousemove is not working on mobile. Should use touchmove
         cover.addEventListener('mousemove', moveLineToTarget);
         cover.addEventListener('touchmove', moveLineToTargetMobile);
