@@ -20,27 +20,14 @@
             position: absolute;
             width: 1000px; 
             height: 500px;
-            top: 10px;
-            left: 10px;
-            clip: rect( 32px, 210px, 217px, 27px )
-        }
-        .circle{
-            width: 180px; 
-            height: 180px;
-            position: absolute;
-            background-color: transparent;
-            border: solid 40px black;
-            border-radius: 50%;
-            transform: translate(-1%, 2%);
-            overflow: hidden;
+            /* 451 281 */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="cover">
-            <img src="bg_main.jpeg" alt="image"/>
-            <div class="circle"></div>
+            <img src="bg_main.jpeg" alt="image" id="img"/>
         </div>
     </div>
 
@@ -49,9 +36,25 @@
             const x = e.clientX;
             const y = e.clientY;
             console.log(`${x}       ${y}`);
+            const img = document.querySelector("#img");
+            img.style.clip = `rect(${y-30}px, ${x-10}px, ${y-10}px, ${x-30}px)`;
+        }
+
+        function moveLineToTargetMobile(e){
+            const x = e.touches[0].clientX;
+            const y = e.touches[0].clientY;
+            console.log(`${x}       ${y}`);
+            const img = document.querySelector("#img");
+            img.style.clip = `rect(${y-30}px, ${x-10}px, ${y-10}px, ${x-30}px)`;
         }
         const cover = document.querySelector('.cover');
+
+        //mousemove is not working on mobile. Should use touchmove
         cover.addEventListener('mousemove', moveLineToTarget);
+        cover.addEventListener('touchmove', moveLineToTargetMobile);
+        
+        //CSS clip reference:
+        //https://dirask.com/posts/CSS-clip-rect-style-property-example-QD9Rmp
     </script>
 </body>
 </html>
