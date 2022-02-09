@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const q1 = require('./question1');
 
+app.use(express.json());
 app.use(express.static('public'));
 
 //Serves all the request which includes /images in the url from Images folder
@@ -21,6 +23,11 @@ app.get('/',function(request,response){
         }
         response.end();
     });
+});
+
+app.get('/q1', (req, res)=>{
+    const json = q1;
+    res.send(json);
 });
 
 app.listen(3000, function(){

@@ -30,7 +30,15 @@
         </div>
     </div>
 
+    <button onclick="javascript:test()">test api</button>
+
     <script>
+        function test(){
+            fetch('http://localhost:3000/q1')
+            .then(response => response.json())
+            .then(data => console.log(data));
+        }
+
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
