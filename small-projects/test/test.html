@@ -56,13 +56,12 @@ bingo.addEventListener('click', () => {
     clearInterval(int);
     totalDuration += Number(timerRef.innerText);
 });
+
 next.addEventListener('click', () => {
     [milliseconds,seconds] = [0,0];
     int = setInterval(displayTimer,100);
 });
-a.addEventListener('click', () => {
-    alert(totalDuration);
-});
+a.addEventListener('click', () => alert(totalDuration));
 
     </script>
 </body>
