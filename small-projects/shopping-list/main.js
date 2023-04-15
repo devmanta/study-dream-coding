@@ -54,3 +54,9 @@ const createItem = (inputText) => {
 addBtn.addEventListener("click", () => {
     onAdd();
 });
+
+input.addEventListener("keypress", (e) => {
+    if (e.keyCode === 13) {
+        onAdd();
+    }
+});
