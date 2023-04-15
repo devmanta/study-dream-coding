@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+    text-align: center;
+}
+
+.list {
+    background-color: #F1F1F1;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.items {
+    list-style-type: none;
+    padding: 0;
+    height: 400px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__row {
+    padding: 0 30px;
+}
+
+.item__delete {
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 300ms ease-in;
+}
+
+.item__delete:hover {
+    color: tomato;
+    transform: scale(1.3);
+}
+
+.header {
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 4px;
+    color: #F3f6f7;
+    border-radius: 20px 20px 0 0;
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(93,191,155,1) 27%, rgba(181,189,95,1) 67%, rgba(214,188,72,1) 82%, rgba(238,187,56,1) 93%, rgba(253,187,45,1) 100%);
+}
+
+.footer__input {
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+    padding: 0 10px;
+    border: none;
+}
+
+.footer {
+    height: 65px;
+    border-radius: 0 0 20px 20px;
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(93,191,155,1) 27%, rgba(181,189,95,1) 67%, rgba(214,188,72,1) 82%, rgba(238,187,56,1) 93%, rgba(253,187,45,1) 100%);
+}
+
+.footer__button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #F3f6f7;
+    cursor: pointer;
+    transition: transform 300ms ease-in;
+}
+
+.footer__button:hover {
+    color: skyblue;
+    transform: scale(1.3);
+}
+
+.item__divider {
+    height: 2px;
+    background-color: darkgray;
+    margin: 6px 0;
+}
