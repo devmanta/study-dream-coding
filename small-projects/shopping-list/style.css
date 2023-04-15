@@ -9,22 +9,24 @@ body {
 
 .list {
     background-color: #F1F1F1;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 9px 1px rgba(0,0,0,0.6); 
+    box-shadow: 5px 5px 9px 1px rgba(0,0,0,0.6);
+    width: 400px;
+    margin: auto;
 }
 
 .items {
     list-style-type: none;
     padding: 0;
     height: 400px;
+    overflow-y: auto;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
-}
-
-.item__row {
-    padding: 0 30px;
+    padding: 5px 30px;
 }
 
 .item__delete {
@@ -55,6 +57,7 @@ body {
     font-size: 20px;
     padding: 0 10px;
     border: none;
+    outline: none; /** 선택하면 창 네모칸 색깔 칠해지는거 */
 }
 
 .footer {
@@ -78,7 +81,8 @@ body {
 }
 
 .item__divider {
+    width: 95%;
+    margin: auto;
     height: 2px;
     background-color: darkgray;
-    margin: 6px 0;
 }
