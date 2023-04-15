@@ -10,7 +10,6 @@ app.use(express.static('public'));
 app.use('/image', express.static(__dirname + '/Image'));
 
 app.get('/',function(request,response){
-    console.log('ddddd');
     response.writeHead(200, {
         'Content-Type': 'text/html'
     });

@@ -3,7 +3,8 @@ const verticalLine = document.querySelector('.vertical');
 const target = document.querySelector('.target');
 const tag = document.querySelector('.tag');
 
-addEventListener('load', () => { // boundingClientRect value should get after 'target' element is loaded, if not, sometimes, target.getBoundingClientRect().width might be 0
+addEventListener('load', () => { 
+  // boundingClientRect value should get after 'target' element is loaded, if not, sometimes, target.getBoundingClientRect().width might be 0
     let toggle = false;
 
     const targetRect = target.getBoundingClientRect();
