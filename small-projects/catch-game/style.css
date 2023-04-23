@@ -2,69 +2,69 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('img/background.png');
-    background-repeat : no-repeat;
-    background-size : cover;
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.container {
-    text-align: center;
-    height: 100%;
-}
-
-.timer {
-    border: 3px solid black;
-    background: white;
-    width: 20%;
-    margin: auto;
-    border-radius: 10px;
-    font-size: 3em;
-    font-weight: bold;
-    padding: 5px;
-}
-
-.cnt-left {
-    border: 2px solid black;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 40px;
-    background: tomato;
-    color: white;
-    margin: auto;
-    margin-top: 5px;
-}
-
-.modal {
-    width: 55%;
-    height: 150px;
-    margin: auto;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
+.game {
+    width: 800px;
+    height: 500px;
+    background: url('img/background.png') center/cover;
     display: flex;
     flex-direction: column;
-    margin-top: 60%;
-    padding: 15px;
 }
 
-.modal i {
-        background: #FCF2CE;
-        width: 45px;
-        height: 45px;
-        border: 1px solid;
-        border-radius: 10px;
-        font-size: 29px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.game__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-.modal p {
+.game__button {
+    background-color: wheat;
+    font-size: 40px;
+    border: 3px solid;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    transition: transform 300ms ease-in;
+}
+
+.game__button:hover {
+    transform: scale(1.1);
+}
+
+.game__timer {
+    background-color: white;
     font-size: 45px;
-    margin: auto;
+    width: 20%;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 15px;
+    margin-top: 8px;
+}
+
+.game__score {
+    background-color: darksalmon;
     color: white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-top: 8px;
+}
+
+.game__field {
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+}
+
+.pop-up {
+
 }
