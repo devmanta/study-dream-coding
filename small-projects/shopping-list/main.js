@@ -1,4 +1,5 @@
 const input = document.querySelector(".footer__input");
+const form = document.querySelector(".new-form");
 const addBtn = document.querySelector(".footer__button");
 
 const items = document.querySelector(".items");
@@ -42,18 +43,24 @@ const createItem = (inputText) => {
 };
 
 
-addBtn.addEventListener("click", () => {
-    onAdd();
-});
+// can be removed if there is a form tag
+// addBtn.addEventListener("click", () => {
+//     onAdd();
+// });
 
-input.addEventListener("keydown", (e) => {
-    if (e.isComposing) {
-        return;
-    }
-    
-    if (e.keyCode === 13) {
-        onAdd();
-    }
+// input.addEventListener("keydown", (e) => {
+//     if (e.isComposing) {
+//         return;
+//     }
+
+//     if (e.keyCode === 13) {
+//         onAdd();
+//     }
+// });
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent form tag's refresh
+    onAdd();
 });
 
 items.addEventListener("click", (e) => {
